@@ -1,24 +1,19 @@
 def nyc_pigeon_organizer(data)
-  pgn_hash = {}
-  x = 0
-
-  data.each do |k, v|
-    v.each do |new_value, names|
-      names.each do |name|
-
-        if !pgn_hash[name]
-          pgn_hash[name] = {}
+  organized_pigeons = {}
+  data.each do |k,v|
+    v.each do |n_v, pigeons|
+      pigeons.each do |name|
+        if !organized_pigeons[name]
+          organized_pigeons[name] = {}
         end
 
-        if !pgn_hash[name][k]
-          pgn_hash[name][k] = []
+        if !organized_pigeons[name][k]
+          organized_pigeons[name][k] = []
         end
 
-        pgn_hash[name][k] << new_value.to_s
+        organized_pigeons[name][k] << n_v.to_s
       end
     end
   end
-  pgn_hash
+  organized_pigeons
 end
-
-
